@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digitell - About</title>
+    <style>
+       /* Background Color Transition */
+@keyframes backgroundColorChange {
+        33% { background: blue; }
+    66% { background: purple; }
+  
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+    overflow: auto; /* Allow scrolling */
+    animation: backgroundColorChange 15s linear infinite; /* Ensuring smooth looping */
+}
+
+        /* Header */
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 20px;
+            background: #2a0e61;
+            color: white;
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo {
+            order: 2;
+            margin-left: auto;
+        }
+
+        .logo img {
+            height: 50px;
+            display: block;
+        }
+
+        .hamburger {
+            font-size: 35px;
+            cursor: pointer;
+            background: #2a0e61;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            border: none;
+            display: block;
+            position: absolute;
+            left: 20px;
+            top: 15px;
+            z-index: 4;
+        }
+
+        /* Sidebar Menu */
+        .menu-container {
+            position: fixed;
+            left: -250px;
+            top: 0;
+            width: 250px;
+            height: 100%;
+            background: #2a0e61;
+            padding-top: 20px;
+            transition: left 0.3s ease-in-out;
+            box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.2);
+            z-index: 3;
+        }
+
+        .menu-container ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        .menu-container ul li {
+            padding: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .menu-container ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.3rem;
+            display: block;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 30px;
+            cursor: pointer;
+            color: white;
+        }
+
+        .menu-active {
+            left: 0 !important;
+        }
+
+        /* Main Content */
+        .content {
+            flex: 1;
+            padding: 50px;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Section Navigation */
+        .section-nav {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+            gap: 30px;
+        }
+
+        .section-nav .section-title {
+            margin: 0;
+            font-size: 1.8rem;
+            cursor: pointer;
+            text-transform: uppercase;
+            color: #2a0e61;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .section-nav .section-title:hover {
+            color: #6a1b9a;
+        }
+
+        /* Section Content */
+        .section-content {
+            display: none;
+            margin-top: 20px;
+            padding: 30px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            border: 2px solid #2a0e61;
+            background-color: #f9f9f9;
+            transition: transform 0.3s ease;
+        }
+
+        .section-content.show {
+            display: block;
+            transform: scale(1.05);
+        }
+
+        .section-description {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        /* Team Section */
+        .team-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .team-member {
+            width: 220px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s;
+            border: 2px solid #2a0e61;
+            background-color: #f9f9f9;
+        }
+
+        .team-member img {
+            border-radius: 50%;
+            height: 150px;
+            width: 150px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .team-member:hover {
+            transform: scale(1.05);
+        }
+
+        .team-member h4 {
+            margin: 10px 0;
+            font-size: 1.5rem;
+            color: #2a0e61;
+        }
+
+        .team-member p {
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        /* Footer */
+        footer {
+            background: #2a0e61;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 1rem;
+            margin-top: auto;
+        }
+
+        .social-icons img {
+            width: 35px;
+            height: 35px;
+            margin: 0 10px;
+        }
+
+       
+        @keyframes floatEmoji {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(300px, -300px) rotate(45deg);
+            }
+            50% {
+                transform: translate(-200px, 400px) rotate(90deg);
+            }
+            75% {
+                transform: translate(400px, 200px) rotate(135deg);
+            }
+            100% {
+                transform: translate(-300px, -100px) rotate(180deg);
+            }
+        }
+/* Floating Emojis */
+/* Smooth Gradient Background Animation */
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.animated-bg {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(-45deg, #1b003b, #6a1b9a, #00aaff, #1b003b);
+    background-size: 300% 300%;
+    animation: gradientAnimation 8s ease infinite;
+    z-index: -1;
+}
+
+/* Floating Emojis */
+.floating-emoji {
+    position: fixed; /* Ensures they cover full screen */
+    font-size: 2.5vw;
+    opacity: 0.6;
+    animation: floatUp 5s linear infinite;
+    pointer-events: none;
+    z-index: -2;
+}
+
+/* Floating Upwards Randomized */
+@keyframes floatUp {
+    0% {
+        transform: translateY(100vh) translateX(calc(-50vw + 100 * random()));
+    }
+    100% {
+        transform: translateY(-10vh) translateX(calc(50vw - 100 * random()));
+    }
+}
+
+.emoji {
+    position: fixed;
+    font-size: 2.5rem;
+    opacity: 0.5;
+    animation: floatUp 2s linear infinite;
+    z-index: -2; /* Behind all content */
+    pointer-events: none; /* Prevent interaction */
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(100vh); /* Start below the viewport */
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-10vh); /* Move beyond the top */
+        opacity: 0;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <button class="hamburger" onclick="toggleMenu()">☰</button>
+        <div class="logo">
+            <a href="index.html"><img src="images/dig.jpg" alt="Digitell Logo"></a>
+        </div>
+    </header>
+
+    <!-- Sidebar Menu -->
+    <div id="menu" class="menu-container">
+        <div class="close-btn" onclick="toggleMenu()">❌</div>
+        <ul>
+            <li><a href="index.html">🏠 Home</a></li>
+            <li><a href="services.html">📱 Services</a></li>
+            <li><a href="about.html">ℹ About</a></li>
+            <li><a href="contact.html">📞 Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+
+        <!-- Section Navigation -->
+        <div class="section-nav">
+            <div class="section-title" onclick="toggleContent('about')">📢 About</div>
+            <div class="section-title" onclick="toggleContent('company')">🏢 Company</div>
+            <div class="section-title" onclick="toggleContent('mission')">🎯 Mission</div>
+            <div class="section-title" onclick="toggleContent('vision')">💡 Vision</div>
+            <div class="section-title" onclick="toggleContent('team')">👥 Meet the Team</div>
+        </div>
+
+        <!-- About Section -->
+        <div id="about" class="section-content">
+            <div class="section-description">
+                <p>Digitell is a cutting-edge digital marketing agency dedicated to helping businesses enhance their online presence. We specialize in social media management, branding, content creation, and innovative packaging solutions. With a strong focus on creativity and results, we ensure that every project is a unique success.</p>
+            </div>
+        </div>
+
+        <!-- Company Description Section -->
+        <div id="company" class="section-content">
+            <div class="section-description">
+                <p>At Digitell, we believe in the power of storytelling through branding. Our team of creative experts works closely with businesses to develop compelling visuals, engaging content, and marketing strategies that drive results. From small businesses to large enterprises, we cater to a wide range of industries, helping them tell their stories in a meaningful way.</p>
+            </div>
+        </div>
+
+        <!-- Mission Section -->
+        <div id="mission" class="section-content">
+            <div class="section-description">
+                <p>Our mission is to empower businesses by delivering high-quality branding and marketing solutions that foster long-term growth and success. We aim to support our clients in reaching their goals through tailored, innovative, and impactful marketing strategies.</p>
+            </div>
+        </div>
+
+        <!-- Vision Section -->
+        <div id="vision" class="section-content">
+            <div class="section-description">
+                <p>Our vision is to be a global leader in digital branding and marketing, known for our innovative solutions and dedication to client success. We aspire to continually push the boundaries of creativity and technology to deliver exceptional results to our clients.</p>
+            </div>
+        </div>
+
+        <!-- Meet the Team Section -->
+        <div id="team" class="section-content">
+            <h2>Meet Our Team</h2>
+            <div class="team-container">
+                <div class="team-member">
+                    <img src="images/Mpho.jpg" alt="Ms. Mpho Ramasana">
+                    <h4>Ms. Mpho Ramasana</h4>
+                    <p>Manager</p>
+                </div>
+                <div class="team-member">
+                    <img src="images/Paleho.jpg" alt="Mr. Paleho Mohlakeng">
+                    <h4>Mr. Paleho Mohlakeng</h4>
+                    <p>Business Management</p>
+                </div>
+                <div class="team-member">
+                    <img src="images/Tsepang.jpg" alt="Ms. Ts'epang Thekiso">
+                    <h4>Ms. Ts'epang Thekiso</h4>
+                    <p>Business Information Technology</p>
+                </div>
+                <div class="team-member">
+                    <img src="images/Bafokeng.jpg" alt="Mr. Bafokeng 'Muso">
+                    <h4>Mr. Bafokeng 'Muso</h4>
+                    <p>Marketing</p>
+                </div>
+                <div class="team-member">
+                    <img src="images/Tsepiso.jpg" alt="Ms. Ts'episo Kabelo">
+                    <h4>Ms. Ts'episo Kabelo</h4>
+                    <p>Graphic Designer</p>
+                </div>
+                <div class="team-member">
+                    <img src="images/Sebabatso.jpg" alt="Ms. Sebabatso Monaheng">
+                    <h4>Ms. Sebabatso Monaheng</h4>
+                    <p>Broadcasting (Radio & TV)</p>
+                </div>
+                <div class="team-member">
+                    <img src="images/Relebohile.jpg" alt="Ms. Relebohile Monare">
+                    <h4>Ms. Relebohile Monare</h4>
+                    <p>Journalism & Media</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Digitell. All rights reserved.</p>
+        <p>📞 <a href="tel:+59380947" style="color: white; text-decoration: none;">59380947</a> | 📧 <a href="mailto:digitell374@gmail.com" style="color: white; text-decoration: none;">digitell374@gmail.com</a></p>
+
+        <div class="social-icons">
+            <a href="https://wa.me/59380947"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp"></a>
+            <a href="https://www.facebook.com/share/1514nFxtCR/?mibextid=wwXIfr" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook"></a>
+            <a href="https://www.instagram.com/digitell374?igsh=MWVocTBoMnptNDE3ZQ==" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram"></a>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        function toggleMenu() {
+            document.getElementById('menu').classList.toggle('menu-active');
+        }
+
+        function toggleContent(id) {
+            const allSections = document.querySelectorAll('.section-content');
+            allSections.forEach(section => section.classList.remove('show'));
+            document.getElementById(id).classList.add('show');
+        }
+
+        function createFloatingEmoji() {
+    const emojis = ["📦", "🎨", "📢", "📱", "💡", "📊", "💻", "🚀", "🎯"];
+
+    for (let i = 0; i < 10; i++) { // Adjust number of emojis on screen
+        const emoji = document.createElement('div');
+        emoji.classList.add('emoji');
+        emoji.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+
+        const randomX = Math.random() * window.innerWidth; // Spread across width
+        const randomSize = Math.random() * 1.5 + 1; // Vary sizes slightly
+        const randomDelay = Math.random() * 2; // Staggered effect
+
+        emoji.style.left = `${randomX}px`;
+        emoji.style.fontSize = `${randomSize}rem`;
+        emoji.style.animationDelay = `${randomDelay}s`;
+
+        document.body.appendChild(emoji);
+
+        setTimeout(() => {
+            emoji.remove();
+        }, 2000); // Remove after floating out
+    }
+}
+
+// Keep generating emojis continuously
+setInterval(createFloatingEmoji, 300); // Faster generation for filling screen
+
+    </script>
+
+</body>
+</html>
